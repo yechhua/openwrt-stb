@@ -20,6 +20,17 @@ sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/auto
 # Set DISTRIB_REVISION
 sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package/lean/default-settings/files/zzz-default-settings
 
+# language
+sed -i "s/zh_cn/en/g" feeds/luci/modules/luci-base/root/etc/uci-defaults/luci-base
+sed -i "s/zh_cn/en/g" package/lean/default-settings/files/zzz-default-settings
+
+# time-zone
+sed -i "s/CST-8/WIB-7/g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s/Shanghai/Jakarta/g" package/lean/default-settings/files/zzz-default-settings
+
+# hostname
+sed -i "s/OpenWrt/BashSupn/g" package/base-files/files/bin/config_generate
+
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.31.4）
 # sed -i 's/192.168.1.1/192.168.31.4/g' package/base-files/files/bin/config_generate
 
@@ -57,7 +68,7 @@ svn co https://github.com/openwrt/packages/branches/openwrt-21.02/net/mwan3 feed
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 
 # Add luci-app-passwall
-# svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
 
 # Add luci-app-openclash
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/openwrt-openclash
@@ -75,8 +86,8 @@ cp $GITHUB_WORKSPACE/amlogic-s9xxx/common-files/patches/zsh/example.zsh ./.oh-my
 popd
 
 # Add luci-app-ssr-plus
-# svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/openwrt-ssrplus
-# rm -rf package/openwrt-ssrplus/luci-app-ssr-plus/po/zh_Hans 2>/dev/null
+svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/openwrt-ssrplus
+rm -rf package/openwrt-ssrplus/luci-app-ssr-plus/po/zh_Hans 2>/dev/null
 # Add p7zip
 # svn co https://github.com/hubutui/p7zip-lede/trunk package/p7zip
 
