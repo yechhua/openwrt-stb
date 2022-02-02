@@ -421,7 +421,7 @@ EOF
     # Add wireless master mode
     wireless_mac80211="lib/netifd/wireless/mac80211.sh"
     [ -f "${wireless_mac80211}" ] && {
-        sed -i "s|ip link |ipconfig link |g" ${wireless_mac80211}
+        cp -f ${wireless_mac80211} ${wireless_mac80211}.bak
         sed -i "s|iw |ipconfig |g" ${wireless_mac80211}
     }
 
