@@ -67,6 +67,9 @@ svn co https://github.com/openwrt/packages/branches/openwrt-21.02/net/mwan3 feed
 # Add luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 
+# Add luci-app-tailscale
+svn co https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
+
 # Add luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
 
